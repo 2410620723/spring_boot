@@ -1,6 +1,7 @@
 package com.spring.boot.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -32,9 +33,20 @@ public class PersonController {
 		return personService.getAll();
 	}
 	
+	@RequestMapping("/findByName")
+	public List<Person> findByName(String name){
+		return personService.findByName(name);
+	}
 	
+	@RequestMapping("/queryByName")
+	public List<Person> queryByName(String name){
+		return personService.queryByName(name);
+	}
 	
-	
+	@RequestMapping("/selectByName")
+	public List<Person> selectByName(String name){
+		return personService.selectByName(name);
+	}
 	
 	
 }
