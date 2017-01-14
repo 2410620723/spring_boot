@@ -23,4 +23,12 @@ public class PersonDao {
 		
 		return persons;
 	}
+
+	public Person selectPersonByName(String name) {
+		String sql = "select * from person where name=?";
+		RowMapper<Person> rowMapper = new BeanPropertyRowMapper<>(Person.class);
+		Person person = jdbcTemplate.queryForObject(sql, new Object[]{name}, rowMapper);
+		
+		return person;
+	}
 }

@@ -48,5 +48,9 @@ public class PersonController {
 		return personService.selectByName(name);
 	}
 	
+	@RequestMapping("/selectPersonByName")
+	public Person selectPersonByName(String name){
+		return personService.selectPersonByName(name);
+	}
 	
 }
