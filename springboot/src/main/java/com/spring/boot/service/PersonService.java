@@ -47,4 +47,8 @@ public class PersonService {
 	public List<Person> selectByName(String name){
 		return personDao.selectByName(name);
 	}
+
+	public Person selectPersonByName(String name) {
+		return personDao.selectPersonByName(name);
+	}
 }
