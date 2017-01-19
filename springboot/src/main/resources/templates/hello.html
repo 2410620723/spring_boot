@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <title>hello</title>
 </head>
 <body>
 <h1>hello templates</h1>
-<span th:text="${name}"></span>
+<span id="span" th:text="${name}" onclick="getSpan()"></span>
 </body>
+<script>
+	function getSpan(){
+		var span = document.querySelector("#span");
+		alert(span.innerText);
+	}
+</script>
 </html>
