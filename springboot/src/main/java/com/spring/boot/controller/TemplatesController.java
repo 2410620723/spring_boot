@@ -23,6 +23,7 @@ public class TemplatesController {
 	@RequestMapping("/getAll")
 	public String getAll(Map<String,Object> map){
 		map.put("persons", personService.getAll());
+		map.put("name", "admin");
 		return "personList";
 	}
 }

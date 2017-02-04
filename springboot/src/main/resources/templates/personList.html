@@ -10,6 +10,12 @@
 		margin: auto;
 	}
 </style>
+<script th:src="@{/jquery-3.1.1.min.js}"></script><!-- 默认静态文件保存在/resources/static目录下 -->
+<script th:inline="javascript">
+  function getPerson(obj){
+	  alert($(obj).text());
+  }
+</script>
 </head>
 <body>
 <table>
@@ -20,11 +26,20 @@
 		<th>birth</th>
 	</tr>
 	<tr th:each="person:${persons}">
-		<td th:text="${person.id}"></td>
+		<td th:text="${person.id}" onclick="getPerson(this)"></td>
 		<td th:text="${person.name}"></td>
 		<td th:text="${person.age}"></td>
 		<td th:text="${#dates.format(person.birth,'yyyy-MM-dd')}"></td>
 	</tr>
 </table>
+<div th:switch="${name}">
+	<span th:case='admin'>welcome 管理员</span>
+	<span th:case="zxm">welcome user</span>
+</div>
+<span th:if="${name!=null||name!=''}">name is not null</span>
+<span th:if="${not #lists.isEmpty(name)}">123</span>
+<script th:inline="javascript">
+	var name=[[${name}]];
+</script>
 </body>
 </html>
